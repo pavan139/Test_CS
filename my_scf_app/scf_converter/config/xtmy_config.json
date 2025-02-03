@@ -1,0 +1,23 @@
+{
+  "output_file_name": "xtmy.txt",
+  "record_mappings": {
+    "03": {
+      "fields": {
+        "ssn": "SSN",
+        "date": "DATE_b"
+      },
+      "defaults": {
+        "processing_code": "P03"
+      }
+    },
+    "07": {
+      "fields": {
+        "ssn": "SSN",
+        "salary": "SALARY"
+      },
+      "defaults": {
+        "date": "20250101"
+      }
+    }
+  }
+}
