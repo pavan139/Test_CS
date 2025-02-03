@@ -1,0 +1,18 @@
+[
+  {
+    "record_type": "03",
+    "fields": [
+      { "name": "ssn",             "start": 0,  "end": 8,  "formatter": "string" },
+      { "name": "date",            "start": 9,  "end": 18, "formatter": "date-mm/dd/yyyy" },
+      { "name": "processing_code", "start": 19, "end": 22, "formatter": "string" }
+    ]
+  },
+  {
+    "record_type": "07",
+    "fields": [
+      { "name": "ssn",    "start": 0,  "end": 8,  "formatter": "string" },
+      { "name": "salary", "start": 9,  "end": 18, "formatter": "decimal-2" },
+      { "name": "date",   "start": 19, "end": 28, "formatter": "date-yyyymmdd" }
+    ]
+  }
+]
