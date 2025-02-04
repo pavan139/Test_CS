@@ -209,3 +209,38 @@ Submission Guidelines
 
 Deadline: 🕒 [Insert Deadline Date]
 Good luck, and happy coding! 🚀
+
+
+
+Revised Task 6: JSON Data Handling – Storing Employee Records
+
+Objective: Learn how to store structured data in a JSON file.
+
+Instructions:
+	1.	Write a function save_employees(data, filename) that:
+	•	Saves a list of employee dictionaries to a JSON file.
+	•	Each dictionary contains:
+	•	"name" (employee name)
+	•	"position" (job title)
+	•	"salary" (employee salary)
+	2.	After saving, the function should print a confirmation message with the total number of employees stored.
+
+Example Input:
+
+employees = [
+    {"name": "Alice", "position": "Manager", "salary": 75000},
+    {"name": "Bob", "position": "Engineer", "salary": 60000}
+]
+save_employees(employees, "employees.json")
+
+Example Output:
+
+Employee data has been saved. 2 records stored.
+
+Why This is Easier?
+
+✅ No file loading required—students only need to write to a file.
+✅ Provides a clear output message instead of requiring them to open a JSON file manually.
+✅ Still introduces JSON storage, a useful skill for working with structured data.
+
+Would you like further simplifications or an optional extension for advanced students? 🚀
