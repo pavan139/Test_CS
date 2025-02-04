@@ -1,0 +1,211 @@
+Python Programming Assignment: Advanced Concepts
+
+Objective
+
+This assignment focuses on advanced Python concepts covered in Week 3, including:
+✅ Date Manipulation
+✅ Control Flow (If Statements, Loops, and List Comprehensions)
+✅ Functions
+✅ Object-Oriented Programming (OOP)
+✅ JSON Data Handling
+
+Each task is practical and relevant to workplace applications. Follow best coding practices, keep your code clean and readable, and test your solutions before submission.
+
+Task 1: Date Manipulation – Scheduling & Workdays
+
+Objective: Work with the datetime module for scheduling and calculating workdays.
+
+Part 1: Find the First Monday of Next Month
+
+Write a function first_monday_next_month() that:
+	•	Determines the first Monday of the next month.
+	•	Returns the date in "YYYY-MM-DD" format.
+
+🔹 Example Usage:
+
+print(first_monday_next_month())  
+# Output: "2025-03-03" (if today is in February)
+
+Part 2: Count Working Days Until a Future Date
+
+Write a function working_days_until(future_date) that:
+	•	Takes a future date (format: "YYYY-MM-DD") as input.
+	•	Returns the number of weekdays (Mon-Fri) from today until that date.
+	•	If the future date falls on a weekend, adjust it to the next Monday before counting.
+
+🔹 Example Usage:
+
+print(working_days_until("2025-03-15"))  
+# Output: Number of weekdays until March 15, 2025
+
+Task 2: Decision Making & Iteration
+
+Objective: Apply control flow and list comprehensions.
+
+Part 1: Analyze a List of Numbers
+
+Write a function analyze_numbers(nums) that:
+	•	Accepts a list of numbers.
+	•	Prints:
+	•	The smallest and largest numbers in the list.
+	•	The average (mean) of all numbers.
+	•	How many numbers are even vs. odd.
+
+🔹 Example Usage:
+
+numbers = [10, 25, 3, 8, 12, 7, 5]
+analyze_numbers(numbers)
+
+🔹 Example Output:
+
+Smallest number: 3
+Largest number: 25
+Average: 10.0
+Even numbers: 3, Odd numbers: 4
+
+Part 2: Filter Names by Length
+
+Write a function filter_names(names, min_length, max_length) that:
+	•	Accepts a list of names.
+	•	Filters names that are between min_length and max_length characters.
+	•	Uses list comprehension.
+	•	Returns the filtered list.
+
+🔹 Example Usage:
+
+names = ["Alice", "Bob", "Charlotte", "Daniel"]
+print(filter_names(names, 5, 8))  
+# Output: ['Alice', 'Daniel']
+
+Task 3: The Workday Reminder (Modified FizzBuzz)
+
+Objective: Use loops and conditional statements to automate task reminders.
+
+Write a function task_reminder(n) that:
+	•	Prints numbers from 1 to n.
+	•	For numbers divisible by 4, print "Take a short break".
+	•	For numbers divisible by 6, print "Check your emails".
+	•	For numbers divisible by both 4 and 6, print "Time for a longer break!".
+	•	Otherwise, print the number.
+
+🔹 Hint:
+	•	A number divisible by both 4 and 6 is divisible by 12.
+
+🔹 Example Usage:
+
+task_reminder(20)
+
+🔹 Example Output:
+
+1
+2
+3
+Take a short break
+5
+Check your emails
+7
+Take a short break
+9
+10
+11
+Time for a longer break!
+...
+
+Task 4: Functions – Employee Performance Tracker
+
+Objective: Process employee performance data using functions.
+
+Write a function performance_summary(scores) that:
+	•	Accepts a dictionary, where:
+	•	Keys = Employee names
+	•	Values = Lists of performance scores
+	•	Returns a summary dictionary with:
+	•	The average score per employee.
+	•	A performance category:
+	•	"Excellent" (Score ≥ 85)
+	•	"Good" (Score 70-84)
+	•	"Needs Improvement" (Score < 70)
+
+🔹 Example Usage:
+
+scores = {
+    "Alice": [90, 85, 88, 92],
+    "Bob": [72, 75],
+    "Charlie": [60, 65, 58, 70, 55]
+}
+print(performance_summary(scores))
+
+🔹 Example Output:
+
+{
+    "Alice": {"Average Score": 88.75, "Category": "Excellent"},
+    "Bob": {"Average Score": 73.5, "Category": "Good"},
+    "Charlie": {"Average Score": 61.6, "Category": "Needs Improvement"}
+}
+
+Task 5: Object-Oriented Programming – Company Devices
+
+Objective: Use OOP to model workplace technology assets.
+
+Part 1: Define a Device Class
+	•	Create a class Device with:
+	•	name (e.g., "Laptop")
+	•	brand (e.g., "Dell")
+	•	purchase_year (e.g., 2020)
+	•	Add a method get_age() that returns the device’s age.
+
+Part 2: Create a Computer Subclass
+	•	Inherit from Device.
+	•	Add an additional attribute ram_size.
+	•	Add a method describe() that prints details.
+
+🔹 Example Usage:
+
+laptop = Computer("Laptop", "Apple", 2019, "16GB")
+print(laptop.get_age())  
+laptop.describe()
+
+🔹 Example Output:
+
+Device: Laptop (Apple, Purchased: 2019)
+RAM Size: 16GB
+
+Task 6: JSON Data Handling – Employee Records
+
+Objective: Store and retrieve employee data using JSON files.
+
+Part 1: Store Employee Data
+
+Write a function save_employees(data, filename) that:
+	•	Saves a list of employee dictionaries to a JSON file.
+
+Part 2: Load Employee Data
+
+Write a function load_employees(filename) that:
+	•	Reads and returns the stored employee data.
+
+🔹 Example Usage:
+
+employees = [
+    {"name": "Alice", "position": "Manager", "salary": 75000},
+    {"name": "Bob", "position": "Engineer", "salary": 60000}
+]
+save_employees(employees, "employees.json")
+data = load_employees("employees.json")
+print(data)
+
+🔹 Example Output:
+
+[
+    {"name": "Alice", "position": "Manager", "salary": 75000},
+    {"name": "Bob", "position": "Engineer", "salary": 60000}
+]
+
+Submission Guidelines
+
+✅ Ensure your code is well-commented and follows PEP 8 standards.
+✅ Test each function before submitting.
+✅ Submit your solutions in a single Python script (.py file) or Jupyter Notebook (.ipynb file).
+
+Deadline: 🕒 [Insert Deadline Date]
+Good luck, and happy coding! 🚀
