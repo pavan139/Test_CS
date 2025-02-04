@@ -244,3 +244,55 @@ Why This is Easier?
 ✅ Still introduces JSON storage, a useful skill for working with structured data.
 
 Would you like further simplifications or an optional extension for advanced students? 🚀
+
+
+New Task 7: Display Current Time in Multiple Timezones
+
+Objective: Learn how to work with timezones in Python.
+
+Instructions:
+	1.	Write a function show_timezones() that:
+	•	Gets the current time in UTC.
+	•	Converts and displays the time in:
+	•	Eastern Standard Time (EST)
+	•	Central Standard Time (CST)
+	•	Pacific Standard Time (PST)
+	•	Prints the results in "YYYY-MM-DD HH:MM:SS" format.
+	2.	Use the pytz module for timezone conversion.
+
+Example Code:
+
+from datetime import datetime
+import pytz
+
+def show_timezones():
+    """Displays the current time in EST, CST, and PST."""
+    utc_now = datetime.now(pytz.utc)
+
+    timezones = {
+        "EST": "America/New_York",
+        "CST": "America/Chicago",
+        "PST": "America/Los_Angeles"
+    }
+
+    for tz_name, tz in timezones.items():
+        local_time = utc_now.astimezone(pytz.timezone(tz))
+        print(f"Current time in {tz_name}: {local_time.strftime('%Y-%m-%d %H:%M:%S')}")
+
+show_timezones()
+
+Example Output:
+
+Current time in EST: 2025-02-04 15:30:00
+Current time in CST: 2025-02-04 14:30:00
+Current time in PST: 2025-02-04 12:30:00
+
+Why This is Useful?
+
+✅ Easy to understand—just displaying time conversions.
+✅ Real-world application—used in scheduling across timezones.
+✅ Keeps it simple while reinforcing datetime and pytz.
+
+Would you like an optional challenge, like displaying times for all U.S. timezones? 🚀
+
+
