@@ -1,0 +1,40 @@
+input_files:
+  file1:
+    file_name: "sales_data.csv"
+    mapping:
+      Sales_ID: sale_id
+      Customer: customer_name
+      Amount: total_amount
+      Date: sale_date
+    dtypes:
+      sale_date:
+        type: date
+        format: "%Y-%m-%d"
+  file2:
+    file_name: "inventory_list.csv"
+    mapping:
+      ItemID: item_id
+      Description: item_description
+      Stock: current_stock
+    dtypes: {}  
+  file3:
+    file_name: "employee_records.csv"
+    mapping:
+      EmpID: employee_id
+      Name: employee_name
+      Department: department
+      HireDate: hire_date
+    dtypes:
+      hire_date:
+        type: date
+        format: "%d-%m-%Y"
+  file4:
+    file_name: "orders.csv"
+    mapping:
+      OrderNo: order_number
+      OrderDate: order_date
+      Product: product_name
+    dtypes:
+      order_date:
+        type: date
+        format: "%m/%d/%Y"
