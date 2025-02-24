@@ -1,5 +1,6 @@
 input_files:
   file1:
+    type: csv
     file_name: "sales_data.csv"
     mapping:
       Sales_ID: sale_id
@@ -11,14 +12,18 @@ input_files:
         type: date
         format: "%Y-%m-%d"
   file2:
-    file_name: "inventory_list.csv"
+    type: text
+    file_name: "inventory_list.txt"
+    delimiter: "|"                # Text file delimiter (e.g., pipe-delimited).
     mapping:
       ItemID: item_id
       Description: item_description
       Stock: current_stock
-    dtypes: {}  
+    dtypes: {}
   file3:
-    file_name: "employee_records.csv"
+    type: excel
+    file_name: "employee_records.xlsx"
+    sheet_name: "Sheet1"          # Sheet to read from the Excel file.
     mapping:
       EmpID: employee_id
       Name: employee_name
@@ -29,7 +34,9 @@ input_files:
         type: date
         format: "%d-%m-%Y"
   file4:
-    file_name: "orders.csv"
+    type: excel
+    file_name: "orders.xlsx"
+    sheet_name: "Orders"          # Sheet name for this Excel file.
     mapping:
       OrderNo: order_number
       OrderDate: order_date
