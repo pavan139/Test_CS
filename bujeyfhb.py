@@ -8,11 +8,25 @@ def load_config(config_path):
         return yaml.safe_load(file)
 
 def process_file(file_config, input_dir="data/input"):
-    """Read a CSV file, rename its columns, and convert specified columns (e.g., date columns)."""
+    """
+    Read a file (CSV, text, or Excel) based on its type,
+    rename columns according to mapping, and convert data types.
+    """
     file_path = os.path.join(input_dir, file_config['file_name'])
-    df = pd.read_csv(file_path)
-    
-    # Rename columns as per the mapping.
+    file_type = file_config.get('type', 'csv').lower()
+
+    if file_type == 'csv':
+        df = pd.read_csv(file_path)
+    elif file_type == 'text':
+        delimiter = file_config.get('delimiter', ',')
+        df = pd.read_csv(file_path, delimiter=delimiter)
+    elif file_type == 'excel':
+        sheet_name = file_config.get('sheet_name', 0)
+        df = pd.read_excel(file_path, sheet_name=sheet_name)
+    else:
+        raise ValueError(f"Unsupported file type: {file_type}")
+
+    # Rename columns based on mapping.
     df = df.rename(columns=file_config['mapping'])
     
     # Convert columns to specified data types.
@@ -23,10 +37,10 @@ def process_file(file_config, input_dir="data/input"):
     return df
 
 def write_to_excel(dataframes, output_path="data/output/final_output.xlsx"):
-    """Write multiple DataFrames to an Excel file, each in its own sheet."""
-    # Ensure the output directory exists.
+    """
+    Write multiple DataFrames to an Excel file, with each DataFrame in a separate sheet.
+    """
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
-    
     with pd.ExcelWriter(output_path, engine='openpyxl') as writer:
         for sheet_name, df in dataframes.items():
             df.to_excel(writer, sheet_name=sheet_name, index=False)
@@ -37,13 +51,13 @@ def main():
     config = load_config("config/input_config.yaml")
     
     dataframes = {}
-    # Process each CSV file as defined in the configuration.
+    # Process each file as defined in the configuration.
     for key, file_config in config.get("input_files", {}).items():
-        print(f"Processing file: {file_config['file_name']}")
+        print(f"Processing file: {file_config['file_name']} (type: {file_config.get('type', 'csv')})")
         df = process_file(file_config)
         dataframes[key] = df
     
-    # Write the processed DataFrames to an Excel file.
+    # Write the processed DataFrames to a single Excel file with separate sheets.
     write_to_excel(dataframes)
 
 if __name__ == '__main__':
